@@ -1,0 +1,24 @@
+{
+  "name": "delicacy",
+  "version": "1.0.0",
+  "description": "A restaurant website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mustafa017/Delicacy.git"
+  },
+  "keywords": [],
+  "author": "Mustafa Khamisi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mustafa017/Delicacy/issues"
+  },
+  "homepage": "https://github.com/Mustafa017/Delicacy#readme",
+  "dependencies": {
+    "express": "4.17.1",
+    "path": "0.12.7"
+  }
+}
