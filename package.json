@@ -4,6 +4,7 @@
   "description": "A restaurant website",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +19,10 @@
   },
   "homepage": "https://github.com/Mustafa017/Delicacy#readme",
   "dependencies": {
+    "bootstrap": "4.5.0",
     "express": "4.17.1",
+    "jquery": "3.5.1",
+    "nodemon": "2.0.3",
     "path": "0.12.7"
   }
 }
