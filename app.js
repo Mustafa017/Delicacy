@@ -4,6 +4,9 @@ const hbs = require("express-handlebars");
 
 
 const app = express();
+const configObj = {
+    title : "Delicacy"
+}
 
 app.use("/images",express.static(path.resolve(__dirname, './src/images/')));
 app.use("/css", express.static(path.resolve(__dirname, './src/css/')));
@@ -21,7 +24,7 @@ app.set('views',  path.resolve(__dirname,'./src/views/'));
 app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', configObj);
 });
 
 app.listen(3000, (err) => {
