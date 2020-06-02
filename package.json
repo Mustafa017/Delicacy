@@ -19,11 +19,14 @@
   },
   "homepage": "https://github.com/Mustafa017/Delicacy#readme",
   "dependencies": {
-    "bootstrap": "4.5.0",
+    "chalk": "4.0.0",
     "express": "4.17.1",
     "express-handlebars": "4.0.4",
-    "jquery": "3.5.1",
+    "mdbootstrap": "4.19.0",
     "nodemon": "2.0.3",
     "path": "0.12.7"
+  },
+  "devDependencies": {
+    "eslint": "7.1.0"
   }
 }

@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("express-handlebars");
+const chalk = require("chalk");
 
 
 const app = express();
@@ -10,9 +11,8 @@ const configObj = {
 
 app.use("/images",express.static(path.resolve(__dirname, './src/images/')));
 app.use("/css", express.static(path.resolve(__dirname, './src/css/')));
-app.use("/css", express.static(path.resolve(__dirname, './node_modules/bootstrap/dist/css/')));
-app.use("/js", express.static(path.resolve(__dirname, './node_modules/bootstrap/dist/js/')));
-app.use("/js", express.static(path.resolve(__dirname, './node_modules/jquery/dist/')));
+app.use("/css", express.static(path.resolve(__dirname, './node_modules/mdbootstrap/css/')));
+app.use("/js", express.static(path.resolve(__dirname, './node_modules/mdbootstrap/js/')));
 
 app.engine('hbs', hbs({
     extname: 'hbs',
@@ -28,6 +28,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(3000, (err) => {
-    return (err) ? console.log(err) :
-    console.log("Server up and running on port 3000");
+    return (err) ? console.log(chalk.red(err)) :
+    console.log(chalk.green("Server up and running on port 3000"));
 });
