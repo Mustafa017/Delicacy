@@ -13,6 +13,8 @@ app.use("/images",express.static(path.resolve(__dirname, './src/images/')));
 app.use("/css", express.static(path.resolve(__dirname, './src/css/')));
 app.use("/css", express.static(path.resolve(__dirname, './node_modules/mdbootstrap/css/')));
 app.use("/js", express.static(path.resolve(__dirname, './node_modules/mdbootstrap/js/')));
+app.use("/css", express.static(path.resolve(__dirname, './node_modules/@fortawesome/fontawesome-free/css/')));
+app.use("/webfonts", express.static(path.resolve(__dirname, './node_modules/@fortawesome/fontawesome-free/webfonts/')));
 
 app.engine('hbs', hbs({
     extname: 'hbs',
