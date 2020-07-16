@@ -2,12 +2,13 @@ const express = require("express");
 const path = require("path");
 const hbs = require("express-handlebars");
 const chalk = require("chalk");
-
+const fs = require("fs");
 
 const app = express();
 const configObj = {
     title : "Delicacy"
 }
+const api = require("./src/scripts/api")(app, fs);
 
 app.use("/images",express.static(path.resolve(__dirname, './src/images/')));
 app.use("/css", express.static(path.resolve(__dirname, './src/css/')));
@@ -31,5 +32,5 @@ app.get('/', (req, res) => {
 
 app.listen(3000, (err) => {
     return (err) ? console.log(chalk.red(err)) :
-    console.log(chalk.green("Server up and running on port 3000"));
+    console.log(chalk.cyan("Server up and running on port 3000"));
 });
