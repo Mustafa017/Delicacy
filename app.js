@@ -3,8 +3,10 @@ const path = require("path");
 const hbs = require("express-handlebars");
 const chalk = require("chalk");
 const fs = require("fs");
+const open = require("open");
 
 const app = express();
+const port = process.env.PORT || 3000;
 const configObj = {
     title : "Delicacy"
 }
@@ -30,7 +32,7 @@ app.get('/', (req, res) => {
     res.render('home', configObj);
 });
 
-app.listen(3000, (err) => {
+app.listen(port, (err) => {
     return (err) ? console.log(chalk.red(err)) :
-    console.log(chalk.cyan("Server up and running on port 3000"));
+    open(`http://localhost:${port}`);
 });
