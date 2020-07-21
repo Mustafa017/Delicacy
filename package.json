@@ -4,7 +4,10 @@
   "description": "A restaurant website",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "npm-run-all --parallel open lint:watch",
+    "open": "nodemon app.js",
+    "lint": "esw src/scripts/* --color",
+    "lint:watch": "npm run lint -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,9 +31,12 @@
     "express-handlebars": "4.0.4",
     "mdbootstrap": "4.19.0",
     "nodemon": "2.0.3",
+    "npm-run-all": "4.1.5",
+    "open": "7.1.0",
     "path": "0.12.7"
   },
   "devDependencies": {
-    "eslint": "7.1.0"
+    "eslint": "7.1.0",
+    "eslint-watch": "7.0.0"
   }
 }
