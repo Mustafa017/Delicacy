@@ -14,5 +14,6 @@
         "ecmaVersion": 11
     },
     "rules": {
+        "no-async-promise-executor": "off"
     }
 }
