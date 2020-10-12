@@ -1,21 +1,28 @@
 (function () {
-    'use strict'
-    const path = require("path");
+  const { MongoClient } = require("mongodb");
+  const url = "mongodb://localhost:27017";
+  const dbName = "delicacy";
 
-    const routes = (app, fs) => {
-        const data_dir = path.resolve(__dirname,"../../data/restaurants.json");
-
-        app.get("/data",(req, res) => {  
-            fs.readFile(data_dir, 'utf-8', (err, data)=>{
-                if(err){
-                    throw err;
-                }
-                res.send(JSON.parse(data));
-            })
-        })
-
-        
+  function apiController() {
+    function getData() {
+      return new Promise(async (resolve, reject) => {
+        const client = new MongoClient(url, { useUnifiedTopology: true });
+        try {
+          await client.connect();
+          const db = client.db(dbName);
+          const results = db.collection("restaurants").find();
+          resolve(await results.toArray());
+          client.close();
+        } catch (error) {
+          reject(error);
+        }
+      });
     }
 
-    module.exports = routes;
+    return {
+      getData,
+    };
+  }
+
+  module.exports = apiController();
 })();
