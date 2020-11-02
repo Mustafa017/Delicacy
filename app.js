@@ -12,17 +12,6 @@ const port = process.env.PORT || 3000;
 const configObj = {
   title: "Delicacy",
 };
-const datafile = path.resolve(__dirname, "data/restaurants.json");
-
-app.get("/data", async (req, res) => {
-  try {
-    const results = await apiController.getData();
-    // console.log(results);
-    res.send(results);
-  } catch (error) {
-    console.log(error);
-  }
-});
 
 app.use("/images", express.static(path.resolve(__dirname, "./src/images/")));
 app.use("/css", express.static(path.resolve(__dirname, "./src/css/")));
@@ -62,8 +51,15 @@ app.engine(
 app.set("views", path.resolve(__dirname, "./src/views/"));
 app.set("view engine", "hbs");
 
-app.get("/", (req, res) => {
-  res.render("home", configObj);
+app.get("/", async (req, res) => {
+  try {
+    const restaurants = await apiController.getData();
+    // console.log(restaurants);
+    // res.send(restaurants);
+    res.render("home", { configObj, restaurants });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.listen(port, (err) => {
