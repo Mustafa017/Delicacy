@@ -1,8 +1,51 @@
 img {
-    width: 500px;
-    height: 300px;
+  width: 500px;
+  height: 300px;
 }
 
-h1{
-    color: royalblue;
+h1 {
+  color: royalblue;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+#tile {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+#restaurant-tiles {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 3px #616161;
+  margin: 15px;
+  min-height: 380px;
+  padding: 0 30px 25px;
+  text-align: left;
+  width: 270px;
+}
+
+#restaurant-tiles li {
+  list-style: none;
+}
+
+#restaurant-tiles li img {
+  max-width: 100%;
+  max-height: 248px;
+}
+
+#restaurant-tiles li h2 {
+  font-size: 15px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  color: #a6c;
+  margin-top: 10px;
+  text-transform: uppercase;
 }
