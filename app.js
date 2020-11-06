@@ -62,6 +62,17 @@ app.get("/", async (req, res) => {
   }
 });
 
+// Express uses path-to-regexp for matching the route paths
+app.get("/:rid", async (req, res) => {
+  try {
+    const rid = req.params.rid.toString();
+    const restById = await apiController.getByID(rid);
+    res.send(restById);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.listen(port, (err) => {
   return err
     ? console.log(chalk.red(err))
